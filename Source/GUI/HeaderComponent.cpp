@@ -20,7 +20,8 @@ HeaderComponent::~HeaderComponent()
 
 void HeaderComponent::paint(juce::Graphics& g)
 {
-    g.fillAll(wahLightGrey);
+    g.setColour(wahLightGrey);
+    g.fillRoundedRectangle(0, 0, 590, 40, 10);
 }
 
 void HeaderComponent::resized()

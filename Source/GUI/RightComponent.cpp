@@ -20,6 +20,8 @@ RightComponent::~RightComponent()
 
 void RightComponent::paint(juce::Graphics& g)
 {
+    g.setColour(wahLightGrey);
+    g.fillRoundedRectangle(0, 0, 100, 240, 10);
 }
 
 void RightComponent::resized()

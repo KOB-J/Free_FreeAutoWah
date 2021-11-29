@@ -15,10 +15,10 @@ FreeAutoWahAudioProcessorEditor::FreeAutoWahAudioProcessorEditor (FreeAutoWahAud
 {
     setSize (600, 300);
 
-    //addAndMakeVisible(centerComponent);
+    addAndMakeVisible(centerComponent);
     addAndMakeVisible(headerComponent);
-    //addAndMakeVisible(leftComponent);
-    //addAndMakeVisible(rightComponent);
+    addAndMakeVisible(leftComponent);
+    addAndMakeVisible(rightComponent);
 
 }
 
@@ -38,8 +38,20 @@ void FreeAutoWahAudioProcessorEditor::resized()
     bounds.removeFromLeft(5);
     bounds.removeFromRight(5);
     bounds.removeFromTop(5);
-    auto headerBounds = bounds.removeFromTop(40);
 
+    auto headerBounds = bounds.removeFromTop(40);
     headerComponent.setBounds(headerBounds);
 
+    bounds.removeFromTop(10);
+
+    auto leftBounds = bounds.removeFromLeft(100);
+    leftComponent.setBounds(leftBounds);
+
+    auto rightBounds = bounds.removeFromRight(100);
+    rightComponent.setBounds(rightBounds);
+
+    bounds.removeFromLeft(5);
+
+    auto centerBounds = bounds.removeFromLeft(380);
+    centerComponent.setBounds(centerBounds);
 }
