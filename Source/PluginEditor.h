@@ -10,6 +10,12 @@
 
 #include <JuceHeader.h>
 #include "PluginProcessor.h"
+#include "GUI/CenterComponent.h"
+#include "GUI/HeaderComponent.h"
+#include "GUI/LeftComponent.h"
+#include "GUI/RightComponent.h"
+#include "Utils/Colors.h"
+
 
 //==============================================================================
 /**
@@ -25,9 +31,12 @@ public:
     void resized() override;
 
 private:
-    // This reference is provided as a quick way for your editor to
-    // access the processor object that created it.
     FreeAutoWahAudioProcessor& audioProcessor;
+
+    CenterComponent centerComponent;
+    HeaderComponent headerComponent;
+    LeftComponent leftComponent;
+    RightComponent rightComponent;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (FreeAutoWahAudioProcessorEditor)
 };
