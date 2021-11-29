@@ -3,6 +3,11 @@
 <JUCERPROJECT id="UGgESm" name="FreeAutoWah" projectType="audioplug" useAppConfig="0"
               addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1">
   <MAINGROUP id="wEmmZI" name="FreeAutoWah">
+    <GROUP id="{2EF119E7-DAFB-3DB4-74C2-916D944FE673}" name="DSP">
+      <FILE id="zmNunQ" name="AutoWah.cpp" compile="1" resource="0" file="Source/DSP/AutoWah.cpp"/>
+      <FILE id="ijyqDq" name="AutoWah.h" compile="0" resource="0" file="Source/DSP/AutoWah.h"/>
+    </GROUP>
+    <GROUP id="{29E59964-ED21-F751-1BC2-5F13B0F55660}" name="GUI"/>
     <GROUP id="{61C50449-87DD-B86C-9E87-6D7580C54C6B}" name="Source">
       <FILE id="j20lq9" name="PluginProcessor.cpp" compile="1" resource="0"
             file="Source/PluginProcessor.cpp"/>
@@ -11,6 +16,9 @@
       <FILE id="ebMvwb" name="PluginEditor.cpp" compile="1" resource="0"
             file="Source/PluginEditor.cpp"/>
       <FILE id="pneAbC" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+    </GROUP>
+    <GROUP id="{FE8BB8CD-7F0F-975B-3807-4F8276B138D7}" name="Utils">
+      <FILE id="U4beXu" name="Colors.h" compile="0" resource="0" file="Source/Utils/Colors.h"/>
     </GROUP>
   </MAINGROUP>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
