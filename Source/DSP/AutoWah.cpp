@@ -12,27 +12,30 @@
 
 AutoWah::AutoWah()
 {
-    baseFrequency_ = 350.0f;
-    q_ = 5.0f;
-    lfoFrequency_ = 1.1f;
-    lfoWidth_ = 1200.0f;
-    envelopeWidth_ = 0.0f;
-    envelopeAttack_ = 0.005f;
-    envelopeDecay_ = 0.025f;
+    baseFrequency = 350.0f;
+    q = 5.0f;
+    lfoFrequency = 1.1f;
+    lfoWidth = 1200.0f;
+    envelopeWidth = 0.0f;
+    envelopeAttack = 0.005f;
+    envelopeDecay = 0.025f;
 
-    envelopes_ = 0;
-    numEnvelopes_ = 0;
-    attackMultiplier_ = 1.0;
-    decayMultiplier_ = 0.0;
+    envelopes = 0;
+    numEnvelopes = 0;
+    attackMultiplier = 1.0;
+    decayMultiplier = 0.0;
 
-    inverseSampleRate_ = 1.0 / 44100.0;
+    inverseSampleRate = 1.0 / 44100.0;
 
-    lfoPhase_ = 0.0f;
+    lfoPhase = 0.0f;
+
+    numSamples = 0;
+    sampleRate = 44100.0;
 }
 
 AutoWah::~AutoWah()
 {
-    delete(envelopes_);
+    delete(envelopes);
 }
 
 void AutoWah::prepare(double sampleRate, int samplesPerBlock)
@@ -52,54 +55,56 @@ void AutoWah::prepare(double sampleRate, int samplesPerBlock)
     numSamples = samplesPerBlock;
     this->sampleRate = sampleRate;
 
-    inverseSampleRate_ = 1.0 / sampleRate;
-    if (envelopeDecay_ == 0.0)
-        decayMultiplier_ = 0.0;
+    inverseSampleRate = 1.0 / sampleRate;
+    if (envelopeDecay == 0.0)
+        decayMultiplier = 0.0;
     else
-        decayMultiplier_ = pow(1.0 / M_E, inverseSampleRate_ / envelopeDecay_);
-    if (envelopeAttack_ == 0.0)
-        attackMultiplier_ = 0.0;
+        decayMultiplier = pow(1.0 / M_E, inverseSampleRate / envelopeDecay);
+    if (envelopeAttack == 0.0)
+        attackMultiplier = 0.0;
     else
-        attackMultiplier_ = pow(1.0 / M_E, inverseSampleRate_ / envelopeAttack_);
+        attackMultiplier = pow(1.0 / M_E, inverseSampleRate / envelopeAttack);
 }
 
-void AutoWah::process(juce::AudioBuffer<float>& buffer, float baseFrequency, float q, float lfoFrequency, float lfoWidth, float envelopeWidth, float envelopeAttack, float envelopeDecay)
+void AutoWah::process(juce::AudioBuffer<float>& buffer, float baseFrequencyWah, float qWah, float lfoFrequencyWah, float lfoWidthWah, float envelopeWidthWah, float envelopeAttackWah, float envelopeDecayWah)
 {
-    baseFrequency_ = baseFrequency;
-    q_ = q;
-    lfoFrequency_ = lfoFrequency;
-    lfoWidth_ = lfoWidth;
-    envelopeWidth_ = envelopeWidth;
-    envelopeAttack_ = envelopeAttack;
-    envelopeDecay_ = envelopeDecay;
+    jassert(numSamples != 0);
+    
+    baseFrequency = baseFrequencyWah;
+    q = qWah;
+    lfoFrequency = lfoFrequencyWah;
+    lfoWidth = lfoWidthWah;
+    envelopeWidth = envelopeWidthWah;
+    envelopeAttack = envelopeAttackWah;
+    envelopeDecay = envelopeDecayWah;
 
     const int numInputChannels = buffer.getNumChannels();
     int channel;
-    float ph;
+    float phase;
 
      for (channel = 0; channel < numInputChannels; ++channel)
     {
         float* channelData = buffer.getWritePointer(channel);
-        ph = lfoPhase_;
+        phase = lfoPhase;
 
         for (int sample = 0; sample < numSamples; ++sample)
         {
             const float in = channelData[sample];
-            float centreFrequency = baseFrequency_;
+            float centreFrequency = baseFrequency;
 
-            if (channel < numEnvelopes_) {   
-                if (fabs(in) > envelopes_[channel]) {
-                    envelopes_[channel] += (1.0 - attackMultiplier_) * (fabs(in) - (double)envelopes_[channel]);
+            if (channel < numEnvelopes) {   
+                if (fabs(in) > envelopes[channel]) {
+                    envelopes[channel] += (1.0 - attackMultiplier) * (fabs(in) - (double)envelopes[channel]);
                 }
                 else
-                    envelopes_[channel] *= decayMultiplier_;
+                    envelopes[channel] *= decayMultiplier;
             }
 
-            if (lfoWidth_ > 0.0) {
-                centreFrequency += lfoWidth_ * (0.5f + 0.5f * sinf(2.0 * M_PI * ph));
+            if (lfoWidth > 0.0) {
+                centreFrequency += lfoWidth * (0.5f + 0.5f * sinf(2.0 * M_PI * phase));
             }
-            if (envelopeWidth_ > 0.0 && channel < numEnvelopes_) {
-                centreFrequency += envelopeWidth_ * envelopes_[channel];
+            if (envelopeWidth > 0.0 && channel < numEnvelopes) {
+                centreFrequency += envelopeWidth * envelopes[channel];
             }
 
        /*     if (!proceed.get())
@@ -124,13 +129,13 @@ void AutoWah::process(juce::AudioBuffer<float>& buffer, float baseFrequency, flo
                     break;
                 }
 
-            ph += lfoFrequency_ * inverseSampleRate_;
-            if (ph >= 1.0)
-                ph -= 1.0;
+            phase += lfoFrequency * inverseSampleRate;
+            if (phase >= 1.0)
+                phase -= 1.0;
         }
     }
 
-    lfoPhase_ = ph;
+    lfoPhase = phase;
 }
 
 void AutoWah::release()

@@ -22,13 +22,13 @@ public:
     void prepare(double sampleRate, int samplesPerBlock);
 
     void process(juce::AudioBuffer<float>& buffer
-        , float baseFrequency
-        , float q
-        , float lfoFrequency
-        , float lfoWidth
-        , float envelopeWidth
-        , float envelopeAttack
-        , float envelopeDecay);
+        , float baseFrequencyWah
+        , float qWah
+        , float lfoFrequencyWah
+        , float lfoWidthWah
+        , float envelopeWidthWah
+        , float envelopeAttackWah
+        , float envelopeDecayWah);
 
     void release();
 
@@ -37,7 +37,6 @@ public:
     size_t getNumSamples() { return numSamples; }
 
 private:
-
     juce::dsp::IIR::Filter<float> filterRight, filterLeft;
     juce::dsp::IIR::Coefficients<float>::Ptr filterCoefs;
 
@@ -47,18 +46,15 @@ private:
     juce::dsp::ProcessSpec spec;
     juce::Atomic<bool> proceed;
 
-    /*********/
+    float baseFrequency, q;
+    float lfoFrequency, lfoWidth;
+    float envelopeWidth, envelopeAttack, envelopeDecay;
+    float lfoPhase;   
 
-    float baseFrequency_, q_;
-    float lfoFrequency_, lfoWidth_;
-    float envelopeWidth_, envelopeAttack_, envelopeDecay_;
-    float lfoPhase_;   
+    double* envelopes; 
+    int numEnvelopes;
 
-    double* envelopes_; 
-    int numEnvelopes_;
+    double attackMultiplier, decayMultiplier;
 
-    double attackMultiplier_, decayMultiplier_;
-
-    double inverseSampleRate_;
-
+    double inverseSampleRate;
 };
