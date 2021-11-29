@@ -9,3 +9,11 @@
 */
 
 #pragma once
+
+#include <JuceHeader.h>
+
+const static juce::Colour wahBlack = juce::Colour(0, 0, 0);
+const static juce::Colour wahLightGrey = juce::Colour(77, 77, 77);
+const static juce::Colour wahDarkGrey = juce::Colour(51, 51, 51);
+const static juce::Colour wahOrange = juce::Colour(212, 170, 0);
+const static juce::Colour wahAzur = juce::Colour(0, 255, 255);

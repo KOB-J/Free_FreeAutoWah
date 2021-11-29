@@ -15,7 +15,7 @@ FreeAutoWahAudioProcessorEditor::FreeAutoWahAudioProcessorEditor (FreeAutoWahAud
 {
     // Make sure that before the constructor has finished, you've set the
     // editor's size to whatever you need it to be.
-    setSize (400, 300);
+    setSize (600, 300);
 }
 
 FreeAutoWahAudioProcessorEditor::~FreeAutoWahAudioProcessorEditor()
@@ -29,8 +29,7 @@ void FreeAutoWahAudioProcessorEditor::paint (juce::Graphics& g)
     g.fillAll (getLookAndFeel().findColour (juce::ResizableWindow::backgroundColourId));
 
     g.setColour (juce::Colours::white);
-    g.setFont (15.0f);
-    g.drawFittedText ("Hello World!", getLocalBounds(), juce::Justification::centred, 1);
+  
 }
 
 void FreeAutoWahAudioProcessorEditor::resized()
