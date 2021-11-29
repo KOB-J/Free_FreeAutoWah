@@ -130,14 +130,6 @@ bool FreeAutoWahAudioProcessor::isBusesLayoutSupported (const BusesLayout& layou
 
 void FreeAutoWahAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages)
 {
-    float baseFrequency = apvts.getRawParameterValue("baseFrequency")->load();
-    float q = apvts.getRawParameterValue("q")->load();
-    float lfoFrequency = apvts.getRawParameterValue("lfoFrequency")->load();
-    float lfoWidth = apvts.getRawParameterValue("lfoWidth")->load();
-    float envelopeWidth = apvts.getRawParameterValue("envelopeWidth")->load();
-    float envelopeAttack = apvts.getRawParameterValue("envelopeAttack")->load();
-    float envelopeDecay = apvts.getRawParameterValue("envelopeDecay")->load();
-
     juce::ScopedNoDenormals noDenormals;
     auto totalNumInputChannels  = getTotalNumInputChannels();
     auto totalNumOutputChannels = getTotalNumOutputChannels();
@@ -145,7 +137,7 @@ void FreeAutoWahAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, 
     for (auto i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
         buffer.clear (i, 0, buffer.getNumSamples());
 
-    autoWah.process(buffer, baseFrequency, q, lfoFrequency, lfoWidth, envelopeWidth, envelopeAttack, envelopeDecay);
+    autoWah.process(buffer, apvts);
 }
 
 //==============================================================================

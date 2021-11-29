@@ -66,17 +66,17 @@ void AutoWah::prepare(double sampleRate, int samplesPerBlock)
         attackMultiplier = pow(1.0 / M_E, inverseSampleRate / envelopeAttack);
 }
 
-void AutoWah::process(juce::AudioBuffer<float>& buffer, float baseFrequencyWah, float qWah, float lfoFrequencyWah, float lfoWidthWah, float envelopeWidthWah, float envelopeAttackWah, float envelopeDecayWah)
+void AutoWah::process(juce::AudioBuffer<float>& buffer, juce::AudioProcessorValueTreeState& apvts)
 {
     jassert(numSamples != 0);
     
-    baseFrequency = baseFrequencyWah;
-    q = qWah;
-    lfoFrequency = lfoFrequencyWah;
-    lfoWidth = lfoWidthWah;
-    envelopeWidth = envelopeWidthWah;
-    envelopeAttack = envelopeAttackWah;
-    envelopeDecay = envelopeDecayWah;
+    baseFrequency = apvts.getRawParameterValue("baseFrequency")->load();
+    q = apvts.getRawParameterValue("q")->load();
+    lfoFrequency = apvts.getRawParameterValue("lfoFrequency")->load();
+    lfoWidth = apvts.getRawParameterValue("lfoWidth")->load();
+    envelopeWidth = apvts.getRawParameterValue("envelopeWidth")->load();
+    envelopeAttack = apvts.getRawParameterValue("envelopeAttack")->load();
+    envelopeDecay = apvts.getRawParameterValue("envelopeDecay")->load();
 
     const int numInputChannels = buffer.getNumChannels();
     int channel;

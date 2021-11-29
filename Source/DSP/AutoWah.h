@@ -22,13 +22,7 @@ public:
     void prepare(double sampleRate, int samplesPerBlock);
 
     void process(juce::AudioBuffer<float>& buffer
-        , float baseFrequencyWah
-        , float qWah
-        , float lfoFrequencyWah
-        , float lfoWidthWah
-        , float envelopeWidthWah
-        , float envelopeAttackWah
-        , float envelopeDecayWah);
+        , juce::AudioProcessorValueTreeState& apvts);
 
     void release();
 
