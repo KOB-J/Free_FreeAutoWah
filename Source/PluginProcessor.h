@@ -9,6 +9,7 @@
 #pragma once
 
 #include <JuceHeader.h>
+#include "DSP/AutoWah.h"
 
 //==============================================================================
 /**
@@ -53,7 +54,18 @@ public:
     void getStateInformation (juce::MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
 
+    juce::AudioProcessorValueTreeState* getApvts() { return &apvts; }
+    juce::UndoManager* getUndoManager() { return &undoManager; }
+
+    juce::AudioProcessorValueTreeState::ParameterLayout getParameterLayout();
+
 private:
+
+    juce::AudioProcessorValueTreeState apvts;
+    juce::UndoManager undoManager;
+
+    AutoWah autoWah;
+
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (FreeAutoWahAudioProcessor)
 };
