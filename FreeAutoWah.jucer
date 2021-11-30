@@ -8,6 +8,12 @@
       <FILE id="ijyqDq" name="AutoWah.h" compile="0" resource="0" file="Source/DSP/AutoWah.h"/>
     </GROUP>
     <GROUP id="{29E59964-ED21-F751-1BC2-5F13B0F55660}" name="GUI">
+      <GROUP id="{E52CC3E2-D1BC-ED0B-5B9C-5333D81749BA}" name="Slider">
+        <FILE id="Fz0HkC" name="AutoWahRotarySlider.h" compile="0" resource="0"
+              file="Source/GUI/Slider/AutoWahRotarySlider.h"/>
+        <FILE id="Ruumig" name="AutoWahSliderLookAndFeel.h" compile="0" resource="0"
+              file="Source/GUI/Slider/AutoWahSliderLookAndFeel.h"/>
+      </GROUP>
       <FILE id="Posfv4" name="CenterComponent.cpp" compile="1" resource="0"
             file="Source/GUI/CenterComponent.cpp"/>
       <FILE id="KCbMSQ" name="CenterComponent.h" compile="0" resource="0"
@@ -23,6 +29,8 @@
             file="Source/GUI/RightComponent.cpp"/>
       <FILE id="TOy2JP" name="RightComponent.h" compile="0" resource="0"
             file="Source/GUI/RightComponent.h"/>
+      <FILE id="tBaw4F" name="SliderComponent.h" compile="0" resource="0"
+            file="Source/GUI/SliderComponent.h"/>
     </GROUP>
     <GROUP id="{61C50449-87DD-B86C-9E87-6D7580C54C6B}" name="Source">
       <FILE id="j20lq9" name="PluginProcessor.cpp" compile="1" resource="0"
