@@ -19,7 +19,6 @@ FreeAutoWahAudioProcessorEditor::FreeAutoWahAudioProcessorEditor (FreeAutoWahAud
     addAndMakeVisible(headerComponent);
     addAndMakeVisible(leftComponent);
     addAndMakeVisible(rightComponent);
-
 }
 
 FreeAutoWahAudioProcessorEditor::~FreeAutoWahAudioProcessorEditor()

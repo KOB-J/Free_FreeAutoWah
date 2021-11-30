@@ -12,7 +12,8 @@
 
 #include <JuceHeader.h>
 #include "../Utils/Colors.h"
-
+#include "Slider/AutoWahRotarySlider.h"
+#include "../Utils/Strings.h"
 
 class LeftComponent : public juce::Component
 {
@@ -23,6 +24,10 @@ public:
     void paint(juce::Graphics& g) override;
     void resized() override;
 
-private:
+    AutoWahRotarySlider* getLfoFrequencySlider() {return &lfoFrequencySlider;}
+    AutoWahRotarySlider* getLfoWidthSlider() {return &lfoWidthSlider;}
 
+private:
+    AutoWahRotarySlider lfoFrequencySlider, lfoWidthSlider;
+    juce::Label lfoFrequencyLabel, lfoWidthLabel, lfoTitleLabel;
 };
