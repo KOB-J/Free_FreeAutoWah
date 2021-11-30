@@ -16,3 +16,9 @@
 const static juce::String lfoFrequency = "Frequency";
 const static juce::String lfoWidth = "Width";
 const static juce::String lfoTitle = "LFO";
+
+//**** RightComponent ****
+const static juce::String envelopeWidth = "Width";
+const static juce::String envelopeAttack = "Attack";
+const static juce::String envelopeDecay = "Decay";
+const static juce::String envelopeTitle = "Envelope";

@@ -51,5 +51,4 @@ void LeftComponent::resized()
     lfoFrequencyLabel.setBounds(15, 9, 70, 10);
     lfoWidthLabel.setBounds(15, 104, 70, 10);
     lfoTitleLabel.setBounds(20, 204, 70, 30);
-
 }
