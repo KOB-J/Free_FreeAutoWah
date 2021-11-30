@@ -12,6 +12,7 @@
 
 #include <JuceHeader.h>
 #include "../Utils/Colors.h"
+#include "../Utils/Strings.h"
 
 
 class HeaderComponent : public juce::Component
@@ -24,5 +25,6 @@ public:
     void resized() override;
 
 private:
-
+    juce::Label headerTitleLabel;
+    juce::TextButton presetButton, undoButton, redoButton, infosButton;
 };

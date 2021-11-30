@@ -22,3 +22,10 @@ const static juce::String envelopeWidth = "Width";
 const static juce::String envelopeAttack = "Attack";
 const static juce::String envelopeDecay = "Decay";
 const static juce::String envelopeTitle = "Envelope";
+
+//**** HeaderComponent ****
+const static juce::String headerTitle = "Auto Wah";
+const static juce::String headerPreset = "Preset";
+const static juce::String headerUndo = "Undo";
+const static juce::String headerRedo = "Redo";
+const static juce::String headerInfos = "?";
