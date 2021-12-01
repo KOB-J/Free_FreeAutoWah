@@ -10,7 +10,9 @@
 
 #include "HeaderComponent.h"
 
-HeaderComponent::HeaderComponent()
+HeaderComponent::HeaderComponent(FreeAutoWahAudioProcessor& p, CenterComponent& c)
+    : audioProcessor(p)
+    , centerComponent(c)
 {
     addAndMakeVisible(headerTitleLabel);
     headerTitleLabel.setText(headerTitle, juce::dontSendNotification);
@@ -36,6 +38,11 @@ HeaderComponent::HeaderComponent()
     infosButton.setButtonText(headerInfos);
     infosButton.setColour(juce::TextButton::buttonColourId, wahOrange);
     infosButton.setColour(juce::TextButton::textColourOffId, wahBlack);
+
+    undoButton.onClick = [&] {audioProcessor.getUndoManager()->undo();};
+    redoButton.onClick = [&] {audioProcessor.getUndoManager()->redo(); };
+    presetButton.onClick = [&] {centerComponent.pressetButtonClicked(); };
+    infosButton.onClick = [&] {centerComponent.infosButtonClicked(); };
 }
 
 HeaderComponent::~HeaderComponent()
@@ -57,3 +64,7 @@ void HeaderComponent::resized()
     infosButton.setBounds(550, 5, 28, 28);
 
 }
+
+
+
+

@@ -38,5 +38,12 @@ private:
     LeftComponent leftComponent;
     RightComponent rightComponent;
 
+    juce::AudioProcessorValueTreeState::SliderAttachment
+        lfoFreqSliderAttachment,
+        lfoWidthSliderAttachment,
+        envelopeWidthSliderAttachment,
+        envelopeAttackSliderAttachment,
+        envelopeDecaySliderAttachment;
+
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (FreeAutoWahAudioProcessorEditor)
 };

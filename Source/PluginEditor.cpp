@@ -12,6 +12,14 @@
 //==============================================================================
 FreeAutoWahAudioProcessorEditor::FreeAutoWahAudioProcessorEditor (FreeAutoWahAudioProcessor& p)
     : AudioProcessorEditor (&p), audioProcessor (p)
+    , centerComponent(p)
+    , headerComponent(p, centerComponent)
+    , lfoFreqSliderAttachment(*p.getApvts(), "lfoFrequency", *leftComponent.getLfoFrequencySlider())
+    , lfoWidthSliderAttachment(*p.getApvts(), "lfoWidth", *leftComponent.getLfoWidthSlider())
+    , envelopeWidthSliderAttachment(*p.getApvts(), "envelopeWidth", *rightComponent.getEnvelopeWidthSlider())
+    , envelopeAttackSliderAttachment(*p.getApvts(), "envelopeAttack", *rightComponent.getEnvelopeAttackSlider())
+    , envelopeDecaySliderAttachment(*p.getApvts(), "envelopeDecay", *rightComponent.getEnvelopeDecaySlider())
+
 {
     setSize (600, 300);
 

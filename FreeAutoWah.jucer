@@ -14,6 +14,14 @@
         <FILE id="Ruumig" name="AutoWahSliderLookAndFeel.h" compile="0" resource="0"
               file="Source/GUI/Slider/AutoWahSliderLookAndFeel.h"/>
       </GROUP>
+      <GROUP id="{A9AA1112-E5CC-E831-6C27-F1A44E87AEB0}" name="SubComponents">
+        <FILE id="vUh4gX" name="GraphViewComponent.h" compile="0" resource="0"
+              file="Source/GUI/SubComponents/GraphViewComponent.h"/>
+        <FILE id="x1UloA" name="InfosViewComponent.h" compile="0" resource="0"
+              file="Source/GUI/SubComponents/InfosViewComponent.h"/>
+        <FILE id="CL67lP" name="PresetsViewComponent.h" compile="0" resource="0"
+              file="Source/GUI/SubComponents/PresetsViewComponent.h"/>
+      </GROUP>
       <FILE id="Posfv4" name="CenterComponent.cpp" compile="1" resource="0"
             file="Source/GUI/CenterComponent.cpp"/>
       <FILE id="KCbMSQ" name="CenterComponent.h" compile="0" resource="0"
@@ -29,8 +37,6 @@
             file="Source/GUI/RightComponent.cpp"/>
       <FILE id="TOy2JP" name="RightComponent.h" compile="0" resource="0"
             file="Source/GUI/RightComponent.h"/>
-      <FILE id="tBaw4F" name="SliderComponent.h" compile="0" resource="0"
-            file="Source/GUI/SliderComponent.h"/>
     </GROUP>
     <GROUP id="{61C50449-87DD-B86C-9E87-6D7580C54C6B}" name="Source">
       <FILE id="j20lq9" name="PluginProcessor.cpp" compile="1" resource="0"
