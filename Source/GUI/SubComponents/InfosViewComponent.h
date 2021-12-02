@@ -21,13 +21,10 @@ class InfosViewComponent : public juce::Component
 public:
     InfosViewComponent()
     {
-        DBG("InfosViewComponent");
-
     }
 
     ~InfosViewComponent()
     {
-
     }
 
     void paint(juce::Graphics& g) override

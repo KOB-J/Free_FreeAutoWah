@@ -15,7 +15,7 @@ CenterComponent::CenterComponent(FreeAutoWahAudioProcessor& p)
     , graphViewComponent(p)
     , presetsViewComponent(p)
 {
-    addAndMakeVisible(presetsViewComponent);
+    addAndMakeVisible(graphViewComponent);
     actualView = 1;
 }
 
@@ -36,6 +36,12 @@ void CenterComponent::paint(juce::Graphics& g)
 void CenterComponent::resized()
 {
     graphViewComponent.setBounds(0, 0, getWidth(), getHeight());
+    presetsViewComponent.setBounds(0, 0, getWidth(), getHeight());
+    infosViewComponent.setBounds(0, 0, getWidth(), getHeight());
+}
+
+void CenterComponent::showGraphView()
+{
 }
 
 void CenterComponent::pressetButtonClicked()

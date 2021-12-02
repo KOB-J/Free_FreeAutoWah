@@ -107,27 +107,27 @@ void AutoWah::process(juce::AudioBuffer<float>& buffer, juce::AudioProcessorValu
                 centreFrequency += envelopeWidth * envelopes[channel];
             }
 
-       /*     if (!proceed.get())
-            {*/
+            if (!proceed.get())
+            {
                 filterCoefs = juce::dsp::IIR::Coefficients<float>::makeLowPass(sampleRate, centreFrequency, q);
                 proceed = true;
-            //}
+            }
 
-                switch (channel)
-                {
-                case 0:
-                    filterLeft.coefficients = filterCoefs;
-                    channelData[sample] = filterLeft.processSample(in);
-                    break;
+                    switch (channel)
+                    {
+                    case 0:
+                        filterLeft.coefficients = filterCoefs;
+                        channelData[sample] = filterLeft.processSample(in);
+                        break;
 
-                case 1:
-                    filterRight.coefficients = filterCoefs;
-                    channelData[sample] = filterRight.processSample(in);
-                    break;
+                    case 1:
+                        filterRight.coefficients = filterCoefs;
+                        channelData[sample] = filterRight.processSample(in);
+                        break;
 
-                default:
-                    break;
-                }
+                    default:
+                        break;
+                    }
 
             phase += lfoFrequency * inverseSampleRate;
             if (phase >= 1.0)

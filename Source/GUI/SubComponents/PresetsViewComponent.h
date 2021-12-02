@@ -22,12 +22,10 @@ public:
     PresetsViewComponent(FreeAutoWahAudioProcessor& p)
         : audioProcessor(p)
     {
-        DBG("PresetsViewComponent");
     }
 
     ~PresetsViewComponent()
     {
-
     }
 
     void paint(juce::Graphics& g) override

@@ -59,6 +59,9 @@ public:
 
     juce::AudioProcessorValueTreeState::ParameterLayout getParameterLayout();
 
+    void getFilterMagnitudeArray(double* frequencies, double* magnitudes);
+    size_t getNumSamples() { return autoWah.getNumSamples(); }
+
 private:
 
     juce::AudioProcessorValueTreeState apvts;

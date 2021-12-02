@@ -28,6 +28,7 @@ public:
     void paint(juce::Graphics& g) override;
     void resized() override;
 
+    void showGraphView();
     void pressetButtonClicked();
     void infosButtonClicked();
 
