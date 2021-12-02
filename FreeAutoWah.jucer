@@ -15,6 +15,10 @@
               file="Source/GUI/Slider/AutoWahSliderLookAndFeel.h"/>
       </GROUP>
       <GROUP id="{A9AA1112-E5CC-E831-6C27-F1A44E87AEB0}" name="SubComponents">
+        <FILE id="QM5x5Y" name="EllipseCutoffComponent.h" compile="0" resource="0"
+              file="Source/GUI/SubComponents/EllipseCutoffComponent.h"/>
+        <FILE id="qpIqfi" name="GraphViewComponent.cpp" compile="1" resource="0"
+              file="Source/GUI/SubComponents/GraphViewComponent.cpp"/>
         <FILE id="vUh4gX" name="GraphViewComponent.h" compile="0" resource="0"
               file="Source/GUI/SubComponents/GraphViewComponent.h"/>
         <FILE id="x1UloA" name="InfosViewComponent.h" compile="0" resource="0"
