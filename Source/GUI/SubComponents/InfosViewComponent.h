@@ -21,6 +21,9 @@ class InfosViewComponent : public juce::Component
 public:
     InfosViewComponent()
     {
+        infosLabel.setText(infosViewText, juce::dontSendNotification);
+        infosLabel.setColour(juce::Label::textColourId, wahOrange);
+        addAndMakeVisible(infosLabel);
     }
 
     ~InfosViewComponent()
@@ -29,13 +32,13 @@ public:
 
     void paint(juce::Graphics& g) override
     {
-        g.setColour(juce::Colours::white);
-        auto bounds = getLocalBounds();
-        g.drawText("InfosViewComponent", bounds, juce::Justification::centred);
     }
 
-    void resized() override {}
+    void resized() override 
+    {
+        infosLabel.setBounds(20, 10, 300, 200);
+    }
 
 private:
-
+    juce::Label infosLabel;
 };

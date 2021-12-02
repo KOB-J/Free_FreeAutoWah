@@ -210,16 +210,12 @@ juce::AudioProcessorValueTreeState::ParameterLayout FreeAutoWahAudioProcessor::g
     layout.add(std::make_unique<juce::AudioParameterFloat>(
         "envelopeAttack",
         "envelopeAttack",
-        //0.000f,
-        //0.01f,
         juce::NormalisableRange<float>(0.000f, 0.01f, 0.0001f),
         0.005f));
 
     layout.add(std::make_unique<juce::AudioParameterFloat>(
         "envelopeDecay",
         "envelopeDecay",
-        //0.0f,
-        //0.1f,
         juce::NormalisableRange<float>(0.000f, 0.1f, 0.001f),
         0.025f));
 

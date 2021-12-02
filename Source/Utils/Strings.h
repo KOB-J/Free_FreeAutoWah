@@ -29,3 +29,11 @@ const static juce::String headerPreset = "Preset";
 const static juce::String headerUndo = "Undo";
 const static juce::String headerRedo = "Redo";
 const static juce::String headerInfos = "?";
+
+//**** InfosViewComponent ****
+const static juce::String infosViewText = "AUTO WAH \n \n \n Free plugin developed by KOB-J \n \n For more free plugins, have a look at :\n \n \n www.github.com/kob-j";
+
+//**** GraphViewComponent ****
+const static juce::String graphViewCutOffText = "Cut Off: ";
+const static juce::String graphViewQText = "Q: ";
+

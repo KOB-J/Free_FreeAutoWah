@@ -44,6 +44,11 @@ public:
 
         buttonX = 100;
         buttonY = 100;
+
+        addAndMakeVisible(graphLabel);
+        graphLabel.setText(getGraphViewLabelText(), juce::dontSendNotification);
+        graphLabel.setColour(juce::Label::outlineColourId, wahLightGrey); 
+        graphLabel.setFont(juce::Font(12.0f, juce::Font::italic));
     }
 
     ~GraphViewComponent()
@@ -68,11 +73,13 @@ public:
     void resized() override
     {
         button.setBounds(buttonX, buttonY, 50, 50);
+        graphLabel.setBounds(10, getHeight() - 70, 100, 50);
     }
 
     void timerCallback() override
     {
         audioProcessor.getFilterMagnitudeArray(frequencies, magnitudes);
+        graphLabel.setText(getGraphViewLabelText(), juce::dontSendNotification);
         repaint();
     }
 
@@ -87,6 +94,7 @@ private:
     double* magnitudes;
     juce::TextButton button;
     int buttonX, buttonY;
+    juce::Label graphLabel;
 
     void moveButton()
     {
@@ -106,5 +114,13 @@ private:
             audioProcessor.getApvts()->getParameter(juce::StringRef("baseFrequency"))->setValueNotifyingHost(xValue);
             audioProcessor.getApvts()->getParameter(juce::StringRef("q"))->setValueNotifyingHost(yValue);            
         }
+    }
+
+    juce::String getGraphViewLabelText()
+    {
+        juce::String str;
+        str << graphViewCutOffText << audioProcessor.getApvts()->getParameter(juce::StringRef("baseFrequency"))->getCurrentValueAsText() << " \n";
+        str << graphViewQText << audioProcessor.getApvts()->getParameter(juce::StringRef("q"))->getCurrentValueAsText();
+        return str;
     }
 };
