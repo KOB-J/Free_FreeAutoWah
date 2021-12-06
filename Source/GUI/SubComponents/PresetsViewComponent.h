@@ -26,7 +26,12 @@ public:
         , listBox("presets", &presetsViewListBoxModel)
     {
         newButton.setButtonText(newPresetButtonText);
+        newButton.setColour(juce::TextButton::textColourOffId, wahAzur);
+        newButton.setColour(juce::TextButton::buttonColourId, wahBlack);
+
         saveButton.setButtonText(savePresetButtonText);
+        saveButton.setColour(juce::TextButton::textColourOffId, wahAzur);
+        saveButton.setColour(juce::TextButton::buttonColourId, wahBlack);
 
         newButton.onClick = [this] {newPreset(); };
         saveButton.onClick = [this] {savePreset(); };
@@ -36,9 +41,11 @@ public:
         addAndMakeVisible(newLabel);
 
         newLabel.setEditable(true);
-        newLabel.setColour(juce::Label::outlineColourId, juce::Colours::beige);
+        newLabel.setColour(juce::Label::backgroundColourId, wahDarkGrey);
+        newLabel.setColour(juce::Label::outlineColourId, wahMidGrey);
 
         addAndMakeVisible(listBox);
+        listBox.setColour(juce::ListBox::backgroundColourId, wahDarkGrey);
     }
 
     ~PresetsViewComponent()
@@ -47,10 +54,10 @@ public:
 
     void resized() override
     {
-        newButton.setBounds(0, 0, 80, 40);
-        newLabel.setBounds(0, 45, 80, 40);
-        saveButton.setBounds(90, 0, 80, 40);
-        listBox.setBounds(200, 50, 150, 150);
+        newLabel.setBounds(getWidth() - 170, 10, 160, 30);
+        newButton.setBounds(getWidth() - 90, 40, 80, 40);
+        saveButton.setBounds(getWidth() - 90, 120, 80, 40);
+        listBox.setBounds(10, 10, getWidth() - 200, getHeight() - 20);
     }
 
     void newPreset()

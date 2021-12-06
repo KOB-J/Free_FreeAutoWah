@@ -12,6 +12,7 @@
 
 #include <JuceHeader.h>
 #include "../Source/PluginProcessor.h"
+#include "../Source/Utils/Strings.h"
 
 
 class PresetsViewListBoxModel : public juce::ListBoxModel
@@ -32,9 +33,9 @@ public:
         int width, int height, bool rowIsSelected) override
     {
         if (rowIsSelected)
-            g.fillAll(juce::Colours::lightblue);
+            g.fillAll(wahLightGrey);
 
-        g.setColour(juce::LookAndFeel::getDefaultLookAndFeel().findColour(juce::Label::textColourId));
+        g.setColour(wahAzur);
         g.setFont((float)height * 0.7f);
         g.drawText(getList()[rowNumber],
             5, 0, width, height,
@@ -55,23 +56,15 @@ public:
     {
         juce::String filePath = juce::File::getSpecialLocation(juce::File::SpecialLocationType::userDesktopDirectory).getFullPathName();
         juce::StringArray list;
-
         juce::File file = juce::File(filePath);
 
         auto results = file.findChildFiles(juce::File::findFiles, false, "*.xml");
 
-        DBG("result size: " << results.size());
-        DBG("file path: " << filePath);
-
-
         for (auto result : results)
         {
-            DBG("file name: " << result.getFileName());
             list.add(result.getFileName());
         }
-
         return list;
-
     }
 
     void selectedRowsChanged(int lastRowSelected) override
@@ -82,7 +75,6 @@ public:
         std::unique_ptr<juce::XmlElement> xmlState;
 
         auto apvts = audioProcessor.getApvts();
-
         xmlState = juce::XmlDocument::parse(file);
 
         if (xmlState.get() != nullptr)
@@ -113,8 +105,6 @@ public:
         auto state = apvts->copyState();
         std::unique_ptr<juce::XmlElement> xml(state.createXml());
 
-        DBG("xml: " << xml.get()->toString());
-
         xmlState = state.createXml();
 
         if (!file.exists()) {
@@ -124,10 +114,7 @@ public:
             file.deleteFile();
         }
 
-
         xml.get()->writeTo(file, {});
-
-        DBG("file: " << file.getFileName());
     }
 
     void saveToFile(juce::String fileName)
@@ -140,8 +127,6 @@ public:
         auto state = apvts->copyState();
         std::unique_ptr<juce::XmlElement> xml(state.createXml());
 
-        DBG("xml: " << xml.get()->toString());
-
         xmlState = state.createXml();
 
         if (!file.exists()) {
@@ -151,10 +136,7 @@ public:
             file.deleteFile();
         }
 
-
         xml.get()->writeTo(file, {});
-
-        DBG("file: " << file.getFileName());
     }
 
 private:
