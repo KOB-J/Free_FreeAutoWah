@@ -36,8 +36,9 @@ GraphViewComponent::GraphViewComponent(FreeAutoWahAudioProcessor& p)
 
     addAndMakeVisible(graphLabel);
     graphLabel.setText(getGraphViewLabelText(), juce::dontSendNotification);
-    graphLabel.setColour(juce::Label::outlineColourId, wahLightGrey);
-    graphLabel.setFont(juce::Font(12.0f, juce::Font::italic));
+    graphLabel.setColour(juce::Label::textColourId, wahWhite);
+    //graphLabel.setColour(juce::Label::outlineColourId, wahWhite);
+    graphLabel.setFont(juce::Font(12.0f, juce::Font::bold));
 }
 
 GraphViewComponent::~GraphViewComponent()
@@ -48,21 +49,32 @@ GraphViewComponent::~GraphViewComponent()
 
 void GraphViewComponent::paint(juce::Graphics& g) 
 {
-    g.setColour(juce::Colours::white);
+    g.setColour(wahOrange);
     auto bounds = getLocalBounds();
-    juce::Path path;
+    juce::Path strokedCurve;
+
+    double max = 0;
 
     for (size_t i = 0; i < numSamples; i++)
     {
-        path.lineTo(i, getHeight() - (getHeight() / 2.0 * magnitudes[i]));
+        auto mappedMagnitude = magnitudes[i] / 10.0;
+        auto mag = getHeight() - (getHeight() * mappedMagnitude); 
+        //strokedCurve.lineTo(i, mag);
+
+        if (mappedMagnitude > max) max = mappedMagnitude;
+
+        g.drawLine(i, mag, i, getHeight(), 4.0f);
     }
-    g.strokePath(path, juce::PathStrokeType(juce::PathStrokeType::beveled));
+
+    DBG("max= " << max);
+    //g.setColour(wahLightGrey);
+    //g.strokePath(strokedCurve, juce::PathStrokeType(juce::PathStrokeType::beveled));
 }
 
 void GraphViewComponent::resized()
 {
     button.setBounds(buttonX, buttonY, 30, 30);
-    graphLabel.setBounds(10, getHeight() - 70, 100, 50);
+    graphLabel.setBounds(10, getHeight() - 70, 120, 50);
 }
 
 void GraphViewComponent::timerCallback() 
@@ -85,7 +97,7 @@ void GraphViewComponent::moveButton()
         repaint();
 
         auto xValue = 1.0f / getWidth() * buttonX;
-        auto yValue = 1.0f / getHeight() * buttonY;
+        auto yValue = 1.0f / getHeight() * (getHeight() - buttonY);
 
         audioProcessor.getApvts()->getParameter(juce::StringRef("baseFrequency"))->setValueNotifyingHost(xValue);
         audioProcessor.getApvts()->getParameter(juce::StringRef("q"))->setValueNotifyingHost(yValue);
@@ -95,7 +107,7 @@ void GraphViewComponent::moveButton()
 juce::String GraphViewComponent::getGraphViewLabelText()
 {
     juce::String str;
-    str << graphViewCutOffText << audioProcessor.getApvts()->getParameter(juce::StringRef("baseFrequency"))->getCurrentValueAsText() << " \n";
+    str << graphViewCutOffText << audioProcessor.getApvts()->getParameter(juce::StringRef("baseFrequency"))->getCurrentValueAsText() << " Hz \n";
     str << graphViewQText << audioProcessor.getApvts()->getParameter(juce::StringRef("q"))->getCurrentValueAsText();
     return str;
 }

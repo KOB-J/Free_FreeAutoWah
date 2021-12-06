@@ -25,6 +25,8 @@
               file="Source/GUI/SubComponents/InfosViewComponent.h"/>
         <FILE id="CL67lP" name="PresetsViewComponent.h" compile="0" resource="0"
               file="Source/GUI/SubComponents/PresetsViewComponent.h"/>
+        <FILE id="sAn1Y8" name="PresetsViewListBoxModel.h" compile="0" resource="0"
+              file="Source/GUI/SubComponents/PresetsViewListBoxModel.h"/>
       </GROUP>
       <FILE id="Posfv4" name="CenterComponent.cpp" compile="1" resource="0"
             file="Source/GUI/CenterComponent.cpp"/>

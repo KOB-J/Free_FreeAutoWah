@@ -42,7 +42,6 @@ private:
     int numSamples;
     double* frequencies;
     double* magnitudes;
-    //juce::TextButton button;
     EllipseCutoffComponent button;
 
     int buttonX, buttonY;

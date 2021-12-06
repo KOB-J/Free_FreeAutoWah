@@ -176,7 +176,7 @@ juce::AudioProcessorValueTreeState::ParameterLayout FreeAutoWahAudioProcessor::g
         "baseFrequency",
         "baseFrequency",
         0.0f,
-        10000.0f,
+        5000.0f,
         350.0f));
 
     layout.add(std::make_unique<juce::AudioParameterFloat>(

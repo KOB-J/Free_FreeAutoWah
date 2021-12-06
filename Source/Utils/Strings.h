@@ -37,3 +37,6 @@ const static juce::String infosViewText = "AUTO WAH \n \n \n Free plugin develop
 const static juce::String graphViewCutOffText = "Cut Off: ";
 const static juce::String graphViewQText = "Q: ";
 
+//**** PresetsViewComponent ****
+const static juce::String newPresetButtonText = "New";
+const static juce::String savePresetButtonText = "Save";

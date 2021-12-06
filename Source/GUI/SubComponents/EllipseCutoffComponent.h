@@ -29,6 +29,6 @@ public:
         g.setColour(wahAzur);
         g.fillEllipse(bounds);
         g.setColour(wahLightGrey);
-        g.drawEllipse(bounds, 4.0f);
+        g.drawEllipse(bounds, 2.0f);
     }
 };
