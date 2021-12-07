@@ -175,7 +175,7 @@ juce::AudioProcessorValueTreeState::ParameterLayout FreeAutoWahAudioProcessor::g
     layout.add(std::make_unique<juce::AudioParameterFloat>(
         "baseFrequency",
         "baseFrequency",
-        0.0f,
+        0.01f,
         5000.0f,
         350.0f));
 
@@ -218,6 +218,11 @@ juce::AudioProcessorValueTreeState::ParameterLayout FreeAutoWahAudioProcessor::g
         "envelopeDecay",
         juce::NormalisableRange<float>(0.000f, 0.1f, 0.001f),
         0.025f));
+
+    layout.add(std::make_unique<juce::AudioParameterBool>(
+        "clipper",
+        "clipper",
+        true));
 
     return layout;
 }

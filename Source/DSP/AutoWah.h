@@ -51,4 +51,5 @@ private:
     double attackMultiplier, decayMultiplier;
 
     double inverseSampleRate;
+    bool clipper;
 };

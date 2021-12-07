@@ -32,6 +32,8 @@ AutoWah::AutoWah()
 
     numSamples = 0;
     sampleRate = 44100.0;
+
+    clipper = true;
 }
 
 AutoWah::~AutoWah()
@@ -79,6 +81,7 @@ void AutoWah::process(juce::AudioBuffer<float>& buffer, juce::AudioProcessorValu
     envelopeWidth = apvts.getRawParameterValue("envelopeWidth")->load();
     envelopeAttack = apvts.getRawParameterValue("envelopeAttack")->load();
     envelopeDecay = apvts.getRawParameterValue("envelopeDecay")->load();
+    clipper = apvts.getRawParameterValue("clipper")->load();
 
     const int numInputChannels = buffer.getNumChannels();
     int channel;
@@ -134,6 +137,11 @@ void AutoWah::process(juce::AudioBuffer<float>& buffer, juce::AudioProcessorValu
                     break;
             }
 
+            if (clipper)
+            {
+                channelData[sample] = (2.0 / juce::float_Pi) * atan(channelData[sample]);
+            }
+
             phase += lfoFrequency * inverseSampleRate;
             if (phase >= 1.0)
                 phase -= 1.0;
@@ -157,3 +165,5 @@ void AutoWah::getFilterMagnitudeArray(double* frequencies, double* magnitudes)
         proceed = false;
     }
 }
+
+

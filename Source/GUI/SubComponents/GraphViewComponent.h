@@ -41,7 +41,6 @@ private:
     double* frequencies;
     double* magnitudes;
     EllipseCutoffComponent button;
-
     int buttonX, buttonY;
     juce::Label graphLabel;
 
