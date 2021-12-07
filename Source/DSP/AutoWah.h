@@ -32,7 +32,7 @@ public:
 
 private:
     juce::dsp::IIR::Filter<float> filterRight, filterLeft;
-    juce::dsp::IIR::Coefficients<float>::Ptr filterCoefs;
+    juce::dsp::IIR::Coefficients<float>::Ptr filterCoefs, filterCoefsForGUI;
 
     size_t numSamples;
     double sampleRate;

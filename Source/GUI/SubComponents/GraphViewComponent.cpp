@@ -51,9 +51,7 @@ void GraphViewComponent::paint(juce::Graphics& g)
 {
     g.setColour(wahOrange);
     auto bounds = getLocalBounds();
-    juce::Path strokedCurve;
-
-    double max = 0;
+    //juce::Path strokedCurve;
 
     for (size_t i = 0; i < numSamples; i++)
     {
@@ -61,14 +59,12 @@ void GraphViewComponent::paint(juce::Graphics& g)
         auto mag = getHeight() - (getHeight() * mappedMagnitude); 
         //strokedCurve.lineTo(i, mag);
 
-        if (mappedMagnitude > max) max = mappedMagnitude;
 
         g.drawLine(i, mag, i, getHeight(), 4.0f);
     }
-
-    DBG("max= " << max);
+    
     //g.setColour(wahLightGrey);
-    //g.strokePath(strokedCurve, juce::PathStrokeType(juce::PathStrokeType::beveled));
+    //g.strokePath(strokedCurve, juce::PathStrokeType(juce::PathStrokeType::beveled)); 
 }
 
 void GraphViewComponent::resized()
@@ -79,9 +75,9 @@ void GraphViewComponent::resized()
 
 void GraphViewComponent::timerCallback() 
 {
-    audioProcessor.getFilterMagnitudeArray(frequencies, magnitudes);
-    graphLabel.setText(getGraphViewLabelText(), juce::dontSendNotification);
-    repaint();
+        audioProcessor.getFilterMagnitudeArray(frequencies, magnitudes);
+        graphLabel.setText(getGraphViewLabelText(), juce::dontSendNotification);
+        repaint();
 }
 
 void GraphViewComponent::moveButton()

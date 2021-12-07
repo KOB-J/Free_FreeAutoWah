@@ -54,7 +54,7 @@ public:
 
     juce::StringArray getList()
     {
-        juce::String filePath = juce::File::getSpecialLocation(juce::File::SpecialLocationType::userDesktopDirectory).getFullPathName();
+        juce::String filePath = juce::File::getSpecialLocation(juce::File::SpecialLocationType::userDocumentsDirectory).getFullPathName() + "/AutoWahPresets";
         juce::StringArray list;
         juce::File file = juce::File(filePath);
 
@@ -70,7 +70,7 @@ public:
     void selectedRowsChanged(int lastRowSelected) override
     {
         juce::String fileName = getList()[lastRowSelected];
-        juce::String filePath = juce::File::getSpecialLocation(juce::File::SpecialLocationType::userDesktopDirectory).getFullPathName() + "/" + fileName;
+        juce::String filePath = juce::File::getSpecialLocation(juce::File::SpecialLocationType::userDocumentsDirectory).getFullPathName() + "/AutoWahPresets/" + fileName;
         juce::File file = juce::File(filePath);
         std::unique_ptr<juce::XmlElement> xmlState;
 
@@ -85,7 +85,7 @@ public:
     void deleteKeyPressed(int lastRowSelected) override
     {
         juce::String fileName = getList()[lastRowSelected];
-        juce::String filePath = juce::File::getSpecialLocation(juce::File::SpecialLocationType::userDesktopDirectory).getFullPathName() + "/" + fileName;
+        juce::String filePath = juce::File::getSpecialLocation(juce::File::SpecialLocationType::userDocumentsDirectory).getFullPathName() + "/AutoWahPresets/" + fileName;
         juce::File file = juce::File(filePath);
 
         if (file.exists()) {
@@ -97,7 +97,7 @@ public:
     void saveToFile(int lastRowSelected)
     {
         juce::String fileName = getList()[lastRowSelected];
-        juce::String filePath = juce::File::getSpecialLocation(juce::File::SpecialLocationType::userDesktopDirectory).getFullPathName() + "/" + fileName;
+        juce::String filePath = juce::File::getSpecialLocation(juce::File::SpecialLocationType::userDocumentsDirectory).getFullPathName() + "/AutoWahPresets/" + fileName;
         juce::File file = juce::File(filePath);
         std::unique_ptr<juce::XmlElement> xmlState;
 
@@ -119,7 +119,7 @@ public:
 
     void saveToFile(juce::String fileName)
     {
-        juce::String filePath = juce::File::getSpecialLocation(juce::File::SpecialLocationType::userDesktopDirectory).getFullPathName() + "/" + fileName + ".xml";
+        juce::String filePath = juce::File::getSpecialLocation(juce::File::SpecialLocationType::userDocumentsDirectory).getFullPathName() + "/AutoWahPresets/" + fileName + ".xml";
         juce::File file = juce::File(filePath);
         std::unique_ptr<juce::XmlElement> xmlState;
 

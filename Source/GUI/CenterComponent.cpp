@@ -25,12 +25,8 @@ CenterComponent::~CenterComponent()
 
 void CenterComponent::paint(juce::Graphics& g)
 {
-    //g.fillAll(wahDarkGrey);
-    //auto bounds = getBounds().toFloat();
     g.setColour(wahLightGrey);
     g.drawRoundedRectangle(0, 0, 380, 240, 10, 1);
-    //g.fillRect(0, 0, 380, 240);
-
 }
 
 void CenterComponent::resized()
@@ -64,7 +60,7 @@ void CenterComponent::pressetButtonClicked()
     case 3:
         removeChildComponent(&infosViewComponent);
         addAndMakeVisible(presetsViewComponent);
-        actualView = 3;
+        actualView = 2;
         break;
 
     default:

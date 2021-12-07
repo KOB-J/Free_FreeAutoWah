@@ -55,10 +55,46 @@ public:
         g.fillEllipse(width * 0.15f, height * 0.15f, width * 0.7f, height * 0.7f);
 
         g.setColour(wahWhite);
-        g.drawFittedText(slider.getTextFromValue(slider.getValue()), width * 0.25, height * 0.5, width * 0.6, height * 0.02, juce::Justification::centred, 1);
+
+        auto maxVal = slider.getMaximum();
+        auto val = slider.getValue();
+        
+
+        DBG("slider max value: " << maxVal);
+
+        if (maxVal == 2000 || maxVal == 4000)
+        {
+            auto modVal = slider.getTextFromValue(val);
+            auto intVal = modVal.getIntValue();
+            modVal = (juce::String)intVal;
+            g.drawFittedText(modVal, width * 0.21, height * 0.49, width * 0.6, height * 0.02, juce::Justification::centred, 1);
+
+        }       
+        else if (maxVal == 0.01f)
+        {
+            auto val2 = val * 1000.00;
+            auto modVal = (juce::String)val2;
+            DBG("modVal: " << modVal<<" val: "<<(juce::String)val);
+            g.drawFittedText(modVal, width * 0.21, height * 0.49, width * 0.6, height * 0.02, juce::Justification::centred, 1);
+        }
+        else if (maxVal == 0.1f)
+        {
+            auto val2 = val * 1000.00;
+            auto modVal = (juce::String)val2;
+            DBG("modVal: " << modVal << " val: " << (juce::String)val);
+            g.drawFittedText(modVal, width * 0.21, height * 0.49, width * 0.6, height * 0.02, juce::Justification::centred, 1);
+        }
+        else
+        {
+            g.drawFittedText(slider.getTextFromValue(val), width * 0.21, height * 0.49, width * 0.6, height * 0.02, juce::Justification::centred, 1);
+        }
+    
+
+
+
+        
+
     }
-
-
 
 private:
 

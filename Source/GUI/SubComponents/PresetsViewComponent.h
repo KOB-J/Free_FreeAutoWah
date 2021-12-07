@@ -46,6 +46,7 @@ public:
 
         addAndMakeVisible(listBox);
         listBox.setColour(juce::ListBox::backgroundColourId, wahDarkGrey);
+        listBox.updateContent();
     }
 
     ~PresetsViewComponent()
