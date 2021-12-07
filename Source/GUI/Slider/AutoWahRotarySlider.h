@@ -22,7 +22,6 @@ public:
         setLookAndFeel(&autoWahSliderLookAndFeel);
         setSliderStyle(juce::Slider::SliderStyle::RotaryVerticalDrag);
         setTextBoxStyle(juce::Slider::TextEntryBoxPosition::NoTextBox, true, 0, 0);
-
     }
 
     ~AutoWahRotarySlider()

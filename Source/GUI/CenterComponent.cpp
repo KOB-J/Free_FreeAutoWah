@@ -10,6 +10,7 @@
 
 #include "CenterComponent.h"
 
+
 CenterComponent::CenterComponent(FreeAutoWahAudioProcessor& p)
     : audioProcessor(p)
     , graphViewComponent(p)

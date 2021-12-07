@@ -19,14 +19,10 @@ class AutoWahSliderLookAndFeel : public juce::LookAndFeel_V4
 {
 public:
     AutoWahSliderLookAndFeel()
-    {
-
-    }
+    {}
 
     ~AutoWahSliderLookAndFeel()
-    {
-
-    }
+    {}
 
     void drawRotarySlider(juce::Graphics& g, int x, int y, int width, int height, float sliderPosProportional, float rotaryStartAngle, float rotaryEndAngle, juce::Slider& slider)
     {
@@ -88,12 +84,6 @@ public:
         {
             g.drawFittedText(slider.getTextFromValue(val), width * 0.21, height * 0.49, width * 0.6, height * 0.02, juce::Justification::centred, 1);
         }
-    
-
-
-
-        
-
     }
 
 private:

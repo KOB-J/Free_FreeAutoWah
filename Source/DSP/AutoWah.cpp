@@ -10,6 +10,7 @@
 
 #include "AutoWah.h"
 
+
 AutoWah::AutoWah()
 {
     baseFrequency = 350.0f;

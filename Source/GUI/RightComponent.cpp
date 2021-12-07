@@ -57,5 +57,4 @@ void RightComponent::resized()
     envelopeAttackLabel.setBounds(25, 74, 70, 10);
     envelopeDecayLabel.setBounds(25, 144, 70, 10);
     envelopeTitleLabel.setBounds(15, 215, 70, 20);
-
 }

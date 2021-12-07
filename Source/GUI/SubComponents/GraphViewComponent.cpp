@@ -37,7 +37,6 @@ GraphViewComponent::GraphViewComponent(FreeAutoWahAudioProcessor& p)
     addAndMakeVisible(graphLabel);
     graphLabel.setText(getGraphViewLabelText(), juce::dontSendNotification);
     graphLabel.setColour(juce::Label::textColourId, wahWhite);
-    //graphLabel.setColour(juce::Label::outlineColourId, wahWhite);
     graphLabel.setFont(juce::Font(12.0f, juce::Font::bold));
 }
 
@@ -51,20 +50,14 @@ void GraphViewComponent::paint(juce::Graphics& g)
 {
     g.setColour(wahOrange);
     auto bounds = getLocalBounds();
-    //juce::Path strokedCurve;
 
     for (size_t i = 0; i < numSamples; i++)
     {
         auto mappedMagnitude = magnitudes[i] / 10.0;
         auto mag = getHeight() - (getHeight() * mappedMagnitude); 
-        //strokedCurve.lineTo(i, mag);
-
 
         g.drawLine(i, mag, i, getHeight(), 4.0f);
     }
-    
-    //g.setColour(wahLightGrey);
-    //g.strokePath(strokedCurve, juce::PathStrokeType(juce::PathStrokeType::beveled)); 
 }
 
 void GraphViewComponent::resized()

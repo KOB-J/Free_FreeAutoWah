@@ -24,11 +24,9 @@ class GraphViewComponent
 {
 public:
     GraphViewComponent(FreeAutoWahAudioProcessor& p);
-
     ~GraphViewComponent();
 
     void paint(juce::Graphics& g) override;
-
     void resized() override;
 
     void timerCallback() override;

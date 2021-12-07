@@ -62,7 +62,6 @@ void HeaderComponent::resized()
     undoButton.setBounds(400, 5, 65, 22);
     redoButton.setBounds(465, 5, 65, 22);
     infosButton.setBounds(550, 5, 28, 28);
-
 }
 
 

@@ -26,12 +26,9 @@ public:
     void paint(juce::Graphics& g) override;
     void resized() override;
 
-
 private:
     FreeAutoWahAudioProcessor& audioProcessor;
     CenterComponent& centerComponent;
     juce::Label headerTitleLabel;
-    juce::TextButton presetButton, undoButton, redoButton, infosButton;
-
-    
+    juce::TextButton presetButton, undoButton, redoButton, infosButton;    
 };
