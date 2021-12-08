@@ -4,9 +4,12 @@ A free auto-wah Audio plugin
 
 To play with, open the FreeAutoWah.jucer file with projucer, and build the project for your desired operating system.
 
+
 **Project statut** = _in progress_ 
 
+
 **PLUGIN preview:**
+
 
 Graph view:
 
