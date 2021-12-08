@@ -2,6 +2,10 @@
 
 A free auto-wah Audio plugin
 
+To play with, open the FreeAutoWah.jucer file with projucer, and build the project for your desired operating system.
+
+**Project statut** = _in progress_ 
+
 **PLUGIN preview:**
 
 Graph view:
@@ -21,7 +25,6 @@ Plugin view:
 ![infos view](https://github.com/KOB-J/Free_FreeAutoWah/blob/main/IMG/AutoWah_Gif_preview.gif)
 
 
-**Project statut** = _in progress_
 
 **TODO**
 
