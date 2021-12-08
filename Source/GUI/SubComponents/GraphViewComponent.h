@@ -20,7 +20,6 @@
 class GraphViewComponent 
     : public juce::Component
     , public juce::Timer
-    , public juce::MouseListener
 {
 public:
     GraphViewComponent(FreeAutoWahAudioProcessor& p);
@@ -31,8 +30,8 @@ public:
 
     void timerCallback() override;
 
-    void mouseDrag(const juce::MouseEvent& event) { moveButton(); }
-    void mouseDown(const juce::MouseEvent& event) { moveButton(); }
+    void mouseDrag(const juce::MouseEvent& event) override { moveButton(); }
+    void mouseDown(const juce::MouseEvent& event) override { moveButton(); }
 
 private:
     FreeAutoWahAudioProcessor& audioProcessor;
