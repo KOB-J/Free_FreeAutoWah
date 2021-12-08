@@ -2,20 +2,30 @@
 
 A free auto-wah Audio plugin
 
-**Project statut** = _in progress_
-
-Plane release date = December 2, 2021
-
-**GUI preview:**
+**PLUGIN preview:**
 
 Graph view:
 
-![graph view](https://github.com/KOB-J/Free_FreeAutoWah/blob/main/IMG/GUI_preview_graphView.png)
+![graph view](https://github.com/KOB-J/Free_FreeAutoWah/blob/main/IMG/graph_preview.png)
 
 Presets view:
 
-![preset view](https://github.com/KOB-J/Free_FreeAutoWah/blob/main/IMG/GUI_preview_presetsView.png)
+![preset view](https://github.com/KOB-J/Free_FreeAutoWah/blob/main/IMG/presets_preview.png)
 
 Infos view:
 
-![infos view](https://github.com/KOB-J/Free_FreeAutoWah/blob/main/IMG/GUI_preview_infosView.png)
+![infos view](https://github.com/KOB-J/Free_FreeAutoWah/blob/main/IMG/infos_preview.png)
+
+Plugin view:
+
+![infos view](https://github.com/KOB-J/Free_FreeAutoWah/blob/main/IMG/AutoWah_Gif_preview.gif)
+
+
+**Project statut** = _in progress_
+
+**TODO**
+
+- DEBUG to get the pluginval validation
+- Remove on GraphViewComponent the Button and the Label, and draw that in paint function
+- Add Clipper on/off Button ( but already added to parameters)
+- ...
