@@ -42,8 +42,6 @@ void LeftComponent::paint(juce::Graphics& g)
 void LeftComponent::resized()
 {
     auto bounds = getLocalBounds();
-    auto width = bounds.getWidth();
-    auto height = bounds.getHeight();
 
     lfoFrequencySlider.setBounds(15, 25, 70, 70);
     lfoWidthSlider.setBounds(15, 120, 70, 70);

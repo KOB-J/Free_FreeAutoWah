@@ -22,8 +22,8 @@ class PresetsViewComponent : public juce::Component
 public:
     PresetsViewComponent(FreeAutoWahAudioProcessor& p)
         : audioProcessor(p)
-        , presetsViewListBoxModel(p, listBox)
         , listBox("presets", &presetsViewListBoxModel)
+        , presetsViewListBoxModel(p, listBox)
     {
         newButton.setButtonText(newPresetButtonText);
         newButton.setColour(juce::TextButton::textColourOffId, wahAzur);

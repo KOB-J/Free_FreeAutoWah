@@ -17,7 +17,7 @@ GraphViewComponent::GraphViewComponent(FreeAutoWahAudioProcessor& p)
     numSamples = audioProcessor.getNumSamples();
     frequencies = new double[numSamples];
     magnitudes = new double[numSamples];
-    setSize(numSamples, 300);
+    setSize((int)numSamples, 300);
 
     for (size_t i = 0; i < numSamples; i++)
     {
@@ -49,7 +49,6 @@ GraphViewComponent::~GraphViewComponent()
 void GraphViewComponent::paint(juce::Graphics& g) 
 {
     g.setColour(wahOrange);
-    auto bounds = getLocalBounds();
 
     for (size_t i = 0; i < numSamples; i++)
     {

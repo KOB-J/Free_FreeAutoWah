@@ -46,8 +46,6 @@ void RightComponent::paint(juce::Graphics& g)
 void RightComponent::resized()
 {
     auto bounds = getLocalBounds();
-    auto width = bounds.getWidth();
-    auto height = bounds.getHeight();
 
     envelopeWidthSlider.setBounds(25, 20, 50, 50);
     envelopeAttackSlider.setBounds(25, 90, 50, 50);

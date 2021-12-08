@@ -36,7 +36,7 @@ public:
 private:
     FreeAutoWahAudioProcessor& audioProcessor;
 
-    int numSamples;
+    size_t numSamples;
     double* frequencies;
     double* magnitudes;
     EllipseCutoffComponent button;
