@@ -29,7 +29,7 @@ GraphViewComponent::GraphViewComponent(FreeAutoWahAudioProcessor& p)
 
     addAndMakeVisible(button);
 
-    addMouseListener(this, false);
+    //addMouseListener(this, false);
 
     buttonX = 100;
     buttonY = 100;
