@@ -5,7 +5,7 @@ A free auto-wah Audio plugin
 To play with, open the FreeAutoWah.jucer file with projucer, and build the project for your desired operating system.
 
 
-**Project statut** = _in progress_ 
+**Project statut** = _stand by, need improvements_ 
 
 
 **PLUGIN preview:**
@@ -27,11 +27,15 @@ Plugin view:
 
 ![infos view](https://github.com/KOB-J/Free_FreeAutoWah/blob/main/IMG/AutoWah_Gif_preview.gif)
 
+Youtube link:
+
+[![Watch the video](https://img.youtube.com/vi/MHmb0zMTUNU/maxresdefault.jpg)](https://www.youtube.com/watch?v=MHmb0zMTUNU)
+
 
 
 **TODO**
 
-- DEBUG to get the pluginval validation
+- Add tests
 - Remove on GraphViewComponent the Button and the Label, and draw that in paint function
 - Add Clipper on/off Button ( but already added to parameters)
 - ...
